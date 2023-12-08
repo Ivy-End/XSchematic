@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from .Element import Line
+from .Element import PolyLine
 
 import matplotlib.pyplot as plt
 
@@ -13,8 +13,8 @@ class MatPlotLib(Engine):
 
         self.canvas = plt
     
-    def draw(self, line: Line):
-        line.draw(self.canvas)
+    def draw(self, polyLine: PolyLine):
+        polyLine.draw(self.canvas)
     
     def show(self):
         self.canvas.show()
