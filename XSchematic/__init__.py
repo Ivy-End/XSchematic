@@ -6,18 +6,6 @@ __revision__ = '0.0.1'
     
     - Elements
         - Line
-            - attribute
-                - anchor (start point, end point)
-                - coordinate (x1, y1, x2, y2)
-                - mirror / flip
-                - rotate
-                - fill
-                - stroke, e.g. solid, dashed, dotted, etc.
-                - thickness
-                - stoke_color
-                - fill_color
-                - arrow
-                - label (linke to Text)
         - PolyLine
         - Polygon
         - Arc

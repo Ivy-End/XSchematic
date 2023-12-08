@@ -1,32 +1,17 @@
 import sys
 sys.path.append(".")
 
-import XSchematic
-import XSchematic.Element
-import XSchematic.Engine
-import XSchematic.Utility
-
-import matplotlib.pyplot as plt
-
-from XSchematic.Utility import Point
-
+from XSchematic import CellView, Drawable, Engine, Utility
+from XSchematic.SDK import Ground
 
 if __name__ == "__main__":
+    engine = Engine.MatPlotLib()
 
-    # element_1 = XSchematic.Element.PolyLine(
-    #     [
-    #         XSchematic.Element.Line(Point(0, 0), Point(1, 1)), 
-    #         XSchematic.Element.Line(Point(1, 1), Point(2, 1)), 
-    #         XSchematic.Element.Line(Point(2, 1), Point(1, 2)), 
-    #         XSchematic.Element.Line(Point(1, 2), Point(0, 0))
-    #     ])
-    
-    engine = XSchematic.Engine.MatPlotLib()
-
-    engine.draw(XSchematic.Element.Line(Point(0, 0), Point(1, 1)))
-    engine.draw(XSchematic.Element.Line(Point(1, 1), Point(2, 1)))
-    engine.draw(XSchematic.Element.Line(Point(2, 1), Point(1, 2)))
-    engine.draw(XSchematic.Element.Line(Point(1, 2), Point(0, 0)))
+    cv = CellView.CellView()
+    cv.addInstance(Ground.Ground())
+    #engine.draw(cv)
+    g = Ground.Ground()
+    engine.draw(g)
 
     engine.save("test.svg")
     engine.show()
