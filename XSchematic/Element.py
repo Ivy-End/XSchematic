@@ -35,15 +35,15 @@ class Line(Element):
     def __str__(self):
         return '{} -> {}'.format(self.startPoint, self.endPoint)
 
-class PolyLine(Element):
-    def __init__(self, lineSegments : list):
-        super().__init__()
+# class PolyLine(Element):
+#     def __init__(self, lineSegments : list):
+#         super().__init__()
         
-        self.lineSegments = lineSegments
+#         self.lineSegments = lineSegments
     
-    def draw(self, canvas):
-        for line in self.lineSegments:
-            line.draw(canvas)
+#     def draw(self, canvas):
+#         for line in self.lineSegments:
+#             line.draw(canvas)
 
-    def __str__(self):
-        return 'PolyLine: {}'.format(self.lineSegments)
+#     def __str__(self):
+#         return 'PolyLine: {}'.format(self.lineSegments)
