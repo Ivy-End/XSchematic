@@ -11,17 +11,26 @@ class Element:
 
 class Line(Element):
     def __init__(self,
-                 start: Point,
-                 end: Point):
+                 startPoint: Point,
+                 endPoint: Point,
+                 alpha : float = 1.0,
+                 color : str = 'black',
+                 lineWidth : float = 1.0):
         super().__init__()
 
-        self.start = start
-        self.end = end
+        self.startPoint = startPoint
+        self.endPoint = endPoint
+        self.alpha = alpha
+        self.color = color
+        self.lineWidth = lineWidth
     
     def draw(self, canvas):
-        coordinates_x = [self.start.x, self.end.x]
-        coordinates_y = [self.start.y, self.end.y]
-        canvas.plot(coordinates_x, coordinates_y)
+        coordinates_x = [self.startPoint.x, self.endPoint.x]
+        coordinates_y = [self.startPoint.y, self.endPoint.y]
+        canvas.plot(coordinates_x, coordinates_y,
+                    alpha = self.alpha,
+                    color = self.color,
+                    linewidth = self.lineWidth)
 
     def __str__(self):
-        return '{} -> {}'.format(self.start, self.end)
+        return '{} -> {}'.format(self.startPoint, self.endPoint)

@@ -14,5 +14,8 @@ from XSchematic.Utility import Point
 if __name__ == "__main__":
     element = XSchematic.Element.Line(Point(0, 0), Point(1, 1))
     engine = XSchematic.Engine.MatPlotLib()
+    
+    cellview = XSchematic.CellView()
+
     engine.draw(element)
     engine.show()
