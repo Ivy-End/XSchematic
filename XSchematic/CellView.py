@@ -1,4 +1,5 @@
 from typing import Self
+from .Utility import Point
 from .Drawable import Drawable
 
 class Symbol:

@@ -18,14 +18,12 @@ class Line(Drawable):
     def __init__(self,
                  startPoint: Point,
                  endPoint: Point,
-                 alpha : float = 1.0,
                  color : str = 'black',
                  lineWidth : float = 1.0) -> None:
         super().__init__()
 
         self.startPoint = startPoint
         self.endPoint = endPoint
-        self.alpha = alpha
         self.color = color
         self.lineWidth = lineWidth
     
@@ -33,7 +31,6 @@ class Line(Drawable):
         xCoordinates = [self.startPoint.x, self.endPoint.x]
         yCoordinates = [self.startPoint.y, self.endPoint.y]
         canvas.plot(xCoordinates, yCoordinates,
-                    alpha = self.alpha,
                     color = self.color,
                     linewidth = self.lineWidth)
 
