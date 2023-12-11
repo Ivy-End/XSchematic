@@ -53,13 +53,13 @@ class Symbol:
         return Point(self.boundingBox[3], self.boundingBox[1])
     
     def center(self) -> Point:
-        return Point((self.boundingBox[2] + self.boundingBox[3]) / 2, (self.boundingBox[0] + self.boundingBox[1]) / 2)
+        pass
     
     def left(self) -> Point:
-        return Point(self.boundingBox[2], (self.boundingBox[0] + self.boundingBox[1]) / 2)
+        pass
     
     def right(self) -> Point:
-        return Point(self.boundingBox[3], (self.boundingBox[0] + self.boundingBox[1]) / 2)
+        pass
 
 class Schematic:
     def __init__(self) -> None:
