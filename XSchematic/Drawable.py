@@ -16,20 +16,18 @@ class Drawable:
 
 class Line(Drawable):
     def __init__(self,
-                 startPoint: Point,
-                 endPoint: Point,
+                 pointList: list[Point],
                  color : str = 'black',
                  lineWidth : float = 1.0) -> None:
         super().__init__()
 
-        self.startPoint = startPoint
-        self.endPoint = endPoint
+        self.pointList = pointList
         self.color = color
         self.lineWidth = lineWidth
     
     def draw(self, canvas) -> None:
-        xCoordinates = [self.startPoint.x, self.endPoint.x]
-        yCoordinates = [self.startPoint.y, self.endPoint.y]
+        xCoordinates = [ point.x for point in self.pointList ]
+        yCoordinates = [ point.y for point in self.pointList ]
         canvas.plot(xCoordinates, yCoordinates,
                     color = self.color,
                     linewidth = self.lineWidth)
