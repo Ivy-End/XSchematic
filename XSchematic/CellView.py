@@ -24,6 +24,9 @@ class Symbol:
     def draw(self, canvas) -> None:
         for drawable in self.drawables:
             drawable.draw(canvas)
+    
+    def origin(self) -> Point:
+        return Point(0, 0)
         
     def north(self) -> Point:
         return Point((self.boundingBox[2] + self.boundingBox[3]) / 2, self.boundingBox[0])
