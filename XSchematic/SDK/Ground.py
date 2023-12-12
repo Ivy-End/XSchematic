@@ -3,7 +3,7 @@ from ..Utility import *
 from ..CellView import CellView, Symbol
 
 class Ground(CellView):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
         self.symbol = self.buildSymbol()

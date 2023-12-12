@@ -1,3 +1,4 @@
+from abc import abstractmethod
 from typing import Self
 from .Utility import Point
 from .Drawable import Drawable
@@ -21,7 +22,7 @@ class Symbol:
 
         return self
 
-    def draw(self, canvas) -> None:
+    def draw(self, canvas, properties) -> None:
         for drawable in self.drawables:
             drawable.draw(canvas)
     
@@ -52,42 +53,45 @@ class Symbol:
     def southEast(self) -> Point:
         return Point(self.boundingBox[3], self.boundingBox[1])
     
+    @abstractmethod
     def center(self) -> Point:
-        pass
+        return NotImplemented
     
+    @abstractmethod
     def left(self) -> Point:
-        pass
+        return NotImplemented
     
+    @abstractmethod
     def right(self) -> Point:
-        pass
+        return NotImplemented
 
 class Schematic:
     def __init__(self) -> None:
         self.instances = []
+        self.properties = {}
 
     def addInstance(self, instance: Symbol) -> Self:
         self.instances.append(instance)
         return self
     
     def draw(self, canvas) -> None:
-        pass
-
+        for instance in self.instances:
+            instance.draw(canvas, self.properties)
+    
 class CellView:
-    def __init__(self) -> None:
-        self.schematic = None
-        self.symbol = None
-
-    def addInstance(self, instance: Self) -> Self:
-        if self.schematic is None:
-            self.schematic = Schematic()
-        
-        self.schematic.addInstance(instance)
+    def __init__(self, drawSchematic = False) -> None:
+        self.schematic = Schematic()
+        self.symbol = Symbol()
+        self.drawSchematic = drawSchematic
     
     def draw(self, canvas) -> None:
-        if self.schematic is not None:
+        if self.drawSchematic:
             self.schematic.draw(canvas)
         else:
-            self.symbol.draw(canvas)            
+            self.symbol.draw(canvas)
 
     def __str__(self) -> str:
-        pass
+        if self.drawSchematic:
+            return str(self.schematic)
+        else:
+            return str(self.symbol)

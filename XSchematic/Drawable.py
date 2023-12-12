@@ -26,7 +26,7 @@ class Line(Drawable):
         self.lineWidth = lineWidth
     
     def draw(self, canvas) -> None:
-        xCoordinates = [ point.x for point in self.pointList ]
+        xCoordinates = [ point.x for point in self.pointList ] 
         yCoordinates = [ point.y for point in self.pointList ]
         canvas.plot(xCoordinates, yCoordinates,
                     color = self.color,

@@ -7,11 +7,9 @@ from XSchematic.SDK import Ground
 if __name__ == "__main__":
     engine = Engine.MatPlotLib()
 
-    cv = CellView.CellView()
-    cv.addInstance(Ground.Ground())
-    #engine.draw(cv)
-    g = Ground.Ground()
-    engine.draw(g)
+    cv = CellView.CellView(drawSchematic = True)
+    cv.schematic.addInstance(Ground.Ground())
+    engine.draw(cv)
 
     engine.save("test.svg")
     engine.show()
