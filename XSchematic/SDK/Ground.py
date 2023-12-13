@@ -98,4 +98,42 @@ class ProtectiveGround(AbstractGround):
         self.addDrawable(Ellipse(center = Point(0, -0.9 * self.scale), radius = 0.9 * self.scale, lineWidth = self.lineWidth))
 
 class ChassisGround(AbstractGround):
-    pass
+    def buildSymbol(self) -> None:
+        self.addDrawable(Line(pointList = [Point( 0                ,  0               ),
+                                           Point( 0                , -1.5 * self.scale)], lineWidth = self.lineWidthConnection))
+        self.addDrawable(Line(pointList = [Point(-1.0  * self.scale, -2.1 * self.scale),
+                                           Point(-0.75 * self.scale, -1.5 * self.scale),
+                                           Point( 0.75 * self.scale, -1.5 * self.scale),
+                                           Point( 0.50 * self.scale, -2.1 * self.scale)], lineWidth = self.lineWidth))
+        self.addDrawable(Line(pointList = [Point( 0                , -1.5 * self.scale),
+                                           Point(-0.25 * self.scale, -2.1 * self.scale)], lineWidth = self.lineWidth))
+
+class EuropeanStyleGround(AbstractGround):
+    def buildSymbol(self) -> None:
+        super().setProperties(linewidth = 3)
+        self.addDrawable(Line(pointList = [Point( 0               ,  0               ),
+                                           Point( 0               , -1   * self.scale)], lineWidth = self.lineWidthConnection))
+        self.addDrawable(Line(pointList = [Point(-1   * self.scale, -1   * self.scale),
+                                           Point( 1   * self.scale, -1   * self.scale)], lineWidth = self.lineWidth))
+        self.addDrawable(Line(pointList = [Point(-1.1 * self.scale, -1.7 * self.scale),
+                                           Point(-0.6 * self.scale, -1   * self.scale)], lineWidth = self.lineWidthConnection))
+        self.addDrawable(Line(pointList = [Point(-0.6 * self.scale, -1.7 * self.scale),
+                                           Point(-0.1 * self.scale, -1   * self.scale)], lineWidth = self.lineWidthConnection))
+        self.addDrawable(Line(pointList = [Point(-0.1 * self.scale, -1.7 * self.scale),
+                                           Point( 0.4 * self.scale, -1   * self.scale)], lineWidth = self.lineWidthConnection))
+        self.addDrawable(Line(pointList = [Point( 0.4 * self.scale, -1.7 * self.scale),
+                                           Point( 0.9 * self.scale, -1   * self.scale)], lineWidth = self.lineWidthConnection))
+        
+class EuropeanStyleGround2(AbstractGround):
+    def buildSymbol(self) -> None:
+        super().setProperties(linewidth = 3)
+        self.addDrawable(Line(pointList = [Point( 0                 ,  0               ),
+                                           Point( 0                 , -1   * self.scale)], lineWidth = self.lineWidthConnection))
+        self.addDrawable(Line(pointList = [Point(-1     * self.scale, -1   * self.scale),
+                                           Point( 1     * self.scale, -1   * self.scale)], lineWidth = self.lineWidth))
+        self.addDrawable(Line(pointList = [Point(-1.1   * self.scale, -1.7 * self.scale),
+                                           Point(-0.45  * self.scale, -1   * self.scale)], lineWidth = self.lineWidthConnection))
+        self.addDrawable(Line(pointList = [Point(-0.425 * self.scale, -1.7 * self.scale),
+                                           Point( 0.22  * self.scale, -1   * self.scale)], lineWidth = self.lineWidthConnection))
+        self.addDrawable(Line(pointList = [Point( 0.25  * self.scale, -1.7 * self.scale),
+                                           Point( 0.9   * self.scale, -1   * self.scale)], lineWidth = self.lineWidthConnection))

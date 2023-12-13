@@ -15,6 +15,9 @@ if __name__ == "__main__":
         sch += (tground := Ground.ThickerGround().translate(point = sground.northEast() + Utility.Point(0.5, 0)))
         sch += (nground := Ground.NoiselessGround().translate(point = tground.northEast() + Utility.Point(0.5, 0)))
         sch += (pground := Ground.ProtectiveGround().translate(point = nground.northEast() + Utility.Point(0.5, 0)))
+        sch += (cground := Ground.ChassisGround().translate(point = pground.northEast() + Utility.Point(0.5, 0)))
+        sch += (eground := Ground.EuropeanStyleGround().translate(point = cground.northEast() + Utility.Point(1, 0)))
+        sch += (eground2 := Ground.EuropeanStyleGround2().translate(point = eground.northEast() + Utility.Point(1, 0)))
 
         engine.draw(sch, debug = True)
         

@@ -2615,69 +2615,6 @@
     }
 }
 
-% chassis ground
-\pgf@circ@declareground{cground}{1}{2}{
-    \pgfsetlinewidth{\ctikzvalof{monopoles/ground/connectionthickness}\pgfstartlinewidth}
-    \pgfpathmoveto{\pgfpointorigin}
-    \pgfpathlineto{\pgfpoint{0pt}{-1.5\pgf@circ@res@step}}
-    \pgfusepath{draw}
-    \pgf@circ@setlinewidth{monopoles/ground}{\pgfstartlinewidth}
-    \pgfpathmoveto{\pgfpoint{-1.00\pgf@circ@res@step}{-2.10\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{-0.75\pgf@circ@res@step}{-1.50\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{ 0.75\pgf@circ@res@step}{-1.50\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{ 0.50\pgf@circ@res@step}{-2.10\pgf@circ@res@step}}
-    \pgfpathmoveto{\pgfpoint{ 0.00\pgf@circ@res@step}{-1.50\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{-0.25\pgf@circ@res@step}{-2.10\pgf@circ@res@step}}
-    \pgfusepath{draw}
-}
-
-% Contributed by @fotesan https://github.com/fotesan
-% european ground
-\pgf@circ@declareground{eground}{1.1}{1.7}{
-    \pgfpathmoveto{\pgfpointorigin}
-    \pgfpathlineto{\pgfpoint{0pt}{-\pgf@circ@res@step}}
-    \pgfusepath{draw}
-
-    \pgfstartlinewidth=\pgflinewidth
-    \pgf@circ@setlinewidth{monopoles/tground}{\pgfstartlinewidth}
-
-    \pgfpathmoveto{\pgfpoint{-1\pgf@circ@res@step}{-\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{1\pgf@circ@res@step}{-\pgf@circ@res@step}}
-    \pgfusepath{draw}
-
-    \pgfsetlinewidth{\pgfstartlinewidth}
-    \pgfpathmoveto{\pgfpoint{-1.1\pgf@circ@res@step}{-1.7\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{-.6\pgf@circ@res@step}{-1\pgf@circ@res@step}}
-    \pgfpathmoveto{\pgfpoint{-.6\pgf@circ@res@step}{-1.7\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{-.1\pgf@circ@res@step}{-1\pgf@circ@res@step}}
-    \pgfpathmoveto{\pgfpoint{-.1\pgf@circ@res@step}{-1.7\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{.4\pgf@circ@res@step}{-1\pgf@circ@res@step}}
-    \pgfpathmoveto{\pgfpoint{.4\pgf@circ@res@step}{-1.7\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{.9\pgf@circ@res@step}{-1\pgf@circ@res@step}}
-    \pgfusepath{draw}
-}
-
-\pgf@circ@declareground{eground2}{1.1}{1.7}{
-    \pgfpathmoveto{\pgfpointorigin}
-    \pgfpathlineto{\pgfpoint{0pt}{-\pgf@circ@res@step}}
-    \pgfusepath{draw}
-
-    \pgfstartlinewidth=\pgflinewidth
-    \pgf@circ@setlinewidth{monopoles/tground}{\pgfstartlinewidth}
-
-    \pgfpathmoveto{\pgfpoint{-1\pgf@circ@res@step}{-\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{1\pgf@circ@res@step}{-\pgf@circ@res@step}}
-    \pgfusepath{draw}
-
-    \pgfsetlinewidth{\pgfstartlinewidth}
-    \pgfpathmoveto{\pgfpoint{-1.1\pgf@circ@res@step}{-1.7\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{-.4\pgf@circ@res@step}{-1\pgf@circ@res@step}}
-    \pgfpathmoveto{\pgfpoint{-.45\pgf@circ@res@step}{-1.7\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{.25\pgf@circ@res@step}{-1\pgf@circ@res@step}}
-    \pgfpathmoveto{\pgfpoint{.2\pgf@circ@res@step}{-1.7\pgf@circ@res@step}}
-    \pgfpathlineto{\pgfpoint{.9\pgf@circ@res@step}{-1\pgf@circ@res@step}}
-    \pgfusepath{draw}
-}
 
 %%%%%%%%%%%%%%%%%%
 %% Power supplies
