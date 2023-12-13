@@ -25,6 +25,11 @@ class Line(Drawable):
         self.color = color
         self.lineWidth = lineWidth
     
+    def translate(self, translate : Point) -> Self:
+        for index, point in enumerate(self.pointList):
+            self.pointList[index] = point.translate(translate)
+        return self
+    
     def draw(self, canvas) -> None:
         xCoordinates = [ point.x for point in self.pointList ] 
         yCoordinates = [ point.y for point in self.pointList ]

@@ -58,3 +58,7 @@ class Point:
     def __str__(self) -> str:
         ''' Overload operator str() '''
         return '({}, {})'.format(self.x, self.y)
+
+    def translate(self, translate : Self) -> Self:
+        ''' Translate the point by a given point '''
+        return self + translate
