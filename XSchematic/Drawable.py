@@ -13,6 +13,7 @@ class Drawable:
                  angleResolution : float = 0.1,
                  center : Point = None,
                  radius : float = None,
+                 ratio : float = 1.0,
                  # Common
                  fill : bool = False,
                  lineWidth : float = 1.0,
@@ -27,6 +28,7 @@ class Drawable:
         self.angleResolution = angleResolution
         self.center = center
         self.radius = radius
+        self.ratio = ratio
         
         self.fill = fill
         self.lineWidth = lineWidth
@@ -90,6 +92,7 @@ class Drawable:
             for index, point in enumerate(self.pointList):
                 self.pointList[index] = point.translate(translate)
             return self
+
         
 class Line(Drawable):
     pass
@@ -102,5 +105,11 @@ class Polygon(Drawable):
 class Arc(Drawable):
     def buildDrawable(self) -> None:
         for angle in np.arange(self.startAngle, self.endAngle, self.angleResolution):
-            self.pointList.append(Point(self.center.x + self.radius * np.cos(np.deg2rad(angle)), self.center.y + self.radius * np.sin(np.deg2rad(angle))))
-        self.pointList.append(Point(self.center.x + self.radius * np.cos(np.deg2rad(self.endAngle)), self.center.y + self.radius * np.sin(np.deg2rad(self.endAngle))))
+            self.pointList.append(Point(self.center.x + self.radius * np.cos(np.deg2rad(angle)), self.center.y + self.radius * self.ratio * np.sin(np.deg2rad(angle))))
+        self.pointList.append(Point(self.center.x + self.radius * np.cos(np.deg2rad(self.endAngle)), self.center.y + self.radius * self.ratio * np.sin(np.deg2rad(self.endAngle))))
+
+class Ellipse(Drawable):
+    def buildDrawable(self) -> None:
+        super().setProperties(startAngle = 0, endAngle = 360, angleResolution = 0.1, fill = True)
+        # for angle in np.arange(self.startAngle, self.endAngle, self.angleResolution):
+        #     self.pointList.append(Point(self.center.x + self.radius * np.cos(np.deg2rad(angle)), self.center.y + self.radius * self.ratio * np.sin(np.deg2rad(angle))))

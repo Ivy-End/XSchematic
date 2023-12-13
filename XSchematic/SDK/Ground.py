@@ -28,8 +28,7 @@ class AbstractGround(Symbol):
             self.lineWidthConnection = kwargs['lineWidthConnection']
         if 'lineWidth' in kwargs:
             self.lineWidth = kwargs['lineWidth']
-
-
+            
 class Ground(AbstractGround):
     def buildSymbol(self) -> None:
         self.drawables.append(Line(pointList = [Point( 0                ,  0               ),
@@ -85,3 +84,15 @@ class NoiselessGround(AbstractGround):
         self.drawables.append(Line(pointList = [Point(-0.25 * self.scale, -1.6 * self.scale),
                                                 Point( 0.25 * self.scale, -1.6 * self.scale)], lineWidth = self.lineWidth))
         self.drawables.append(Arc(startAngle = 0, endAngle = 180, center = Point(0, -1.6 * self.scale), radius = 0.9 * self.scale, lineWidth = self.lineWidth))
+
+class ProtectiveGround(AbstractGround):
+    def buildSymbol(self) -> None:
+        self.drawables.append(Line(pointList = [Point( 0               ,  0               ),
+                                                Point( 0               , -1   * self.scale)], lineWidth = self.lineWidthConnection))
+        self.drawables.append(Line(pointList = [Point(-0.6 * self.scale, -1   * self.scale),
+                                                Point( 0.6 * self.scale, -1   * self.scale)], lineWidth = self.lineWidth))
+        self.drawables.append(Line(pointList = [Point(-0.4 * self.scale, -1.2 * self.scale),
+                                                Point( 0.4 * self.scale, -1.2 * self.scale)], lineWidth = self.lineWidth))
+        self.drawables.append(Line(pointList = [Point(-0.25 * self.scale, -1.4 * self.scale),
+                                                Point( 0.25 * self.scale, -1.4 * self.scale)], lineWidth = self.lineWidth))
+        self.drawables.append(Ellipse(center = Point(0, -0.9 * self.scale), radius = 0.9 * self.scale, lineWidth = self.lineWidth))
