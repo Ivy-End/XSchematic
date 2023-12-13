@@ -14,7 +14,7 @@ if __name__ == "__main__":
         sch += (sground := Ground.SignalGround().translate(point = refground.northEast() + Utility.Point(0.5, 0)))
         sch += (tground := Ground.ThickerGround().translate(point = sground.northEast() + Utility.Point(0.5, 0)))
         sch += (nground := Ground.NoiselessGround().translate(point = tground.northEast() + Utility.Point(0.5, 0)))
-        #sch += (pground := Ground.ProtectiveGround().translate(point = nground.northEast() + Utility.Point(0.5, 0)))
+        sch += (pground := Ground.ProtectiveGround().translate(point = nground.northEast() + Utility.Point(0.5, 0)))
 
         engine.draw(sch, debug = True)
         

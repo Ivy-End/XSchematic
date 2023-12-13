@@ -6,7 +6,7 @@ import numpy as np
 class Drawable:
     def __init__(self,
                  # Line/Polygon
-                 pointList : list[Point] = [],
+                 pointList : list[Point] = None,
                  # Arc
                  startAngle : float = 0.0,
                  endAngle : float = 360.0,
@@ -22,7 +22,7 @@ class Drawable:
                  capStyle : str = 'round',
                  joinStyle : str = 'round') -> None:
 
-        self.pointList = pointList
+        self.pointList = pointList if pointList is not None else []
         self.startAngle = startAngle
         self.endAngle = endAngle
         self.angleResolution = angleResolution
@@ -36,7 +36,7 @@ class Drawable:
         self.fillColor = fillColor
         self.capStyle = capStyle
         self.joinStyle = joinStyle
-
+        
         self.buildDrawable()
 
     def buildDrawable(self) -> None:
@@ -93,7 +93,6 @@ class Drawable:
                 self.pointList[index] = point.translate(translate)
             return self
 
-        
 class Line(Drawable):
     pass
 
@@ -111,5 +110,6 @@ class Arc(Drawable):
 class Ellipse(Drawable):
     def buildDrawable(self) -> None:
         super().setProperties(startAngle = 0, endAngle = 360, angleResolution = 0.1, fill = True)
-        # for angle in np.arange(self.startAngle, self.endAngle, self.angleResolution):
-        #     self.pointList.append(Point(self.center.x + self.radius * np.cos(np.deg2rad(angle)), self.center.y + self.radius * self.ratio * np.sin(np.deg2rad(angle))))
+        for angle in np.arange(self.startAngle, self.endAngle, self.angleResolution):
+            self.pointList.append(Point(self.center.x + self.radius * np.cos(np.deg2rad(angle)), self.center.y + self.radius * self.ratio * np.sin(np.deg2rad(angle))))
+        self.pointList.append(self.pointList[0])
