@@ -55,6 +55,10 @@ class Symbol:
         self.getBoundingBox()
         return Point(self.boundingBox[3], self.boundingBox[1])
 
+    def center(self) -> Point:
+        self.getBoundingBox()
+        return Point((self.boundingBox[2] + self.boundingBox[3]) / 2, (self.boundingBox[0] + self.boundingBox[1]) / 2)
+
     def draw(self, canvas) -> None:
         for drawable in self.drawables:
             drawable.draw(canvas)

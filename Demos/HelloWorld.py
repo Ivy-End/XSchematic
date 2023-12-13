@@ -8,9 +8,10 @@ if __name__ == "__main__":
     engine = Engine.MatPlotLib()
 
     with CellView.Schematic() as sch:
-        sch += (ground := Ground.Ground().translate(point = Utility.Point(0, 0)))
-        sch += (tlground := Ground.TaillessGround().translate(point = Utility.Point(2, 0)))
-        sch += (refground := Ground.ReferenceGround().translate(point = Utility.Point(4, 0)))
+        sch += (ground := Ground.Ground())
+        sch += (tlground := Ground.TaillessGround().translate(point = ground.northEast() + Utility.Point(0.5, 0)))
+        sch += (refground := Ground.ReferenceGround().translate(point = tlground.northEast() + Utility.Point(0.5, 0)))
+        sch += (sground := Ground.SignalGround().translate(point = refground.northEast() + Utility.Point(0.5, 0)))
 
         engine.draw(sch, debug = True)
         
