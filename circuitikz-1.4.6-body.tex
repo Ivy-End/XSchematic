@@ -75,35 +75,9 @@
     \ctikzset{tripoles/triac/diode width right/.initial=.3}}
 }
 
-%% we have to load this before options to define the magics for compatibility
-%%%%%%%%%%% Springe nach tex/pgfcirc.defines
-%%%---------- open: tex/pgfcirc.defines.tex
-% Copyright 2018-2022 by Romano Giannetti
-% Copyright 2015-2022 by Stefan Lindner
-% Copyright 2013-2022 by Stefan Erhardt
-% Copyright 2007-2022 by Massimo Redaelli
-%
-% This file may be distributed and/or modified
-%
-% 1. under the LaTeX Project Public License and/or
-% 2. under the GNU Public License.
-%
-% See the files gpl-3.0_license.txt and lppl-1-3c_license.txt for more details.
-%
-% This file has folding marks for vim (See last line).
-%
-
-%
-% This file is loaded *before* the options for the package are executed, mainly
-% for the following three ifs
-%
-% these three ifs are fundamental for the package loading options;
-% do not move away
 \newif\ifpgf@circ@siunitx
 \newif\ifpgf@circ@siunitx@res
 \newif\ifpgf@circuit@compat
-
-%% Key managements%<<<1
 
 \long\def\pgf@circ@comment#1{}
 
@@ -117,16 +91,11 @@
 \def\ctikzsetvalof#1#2{\pgfkeyssetvalue{\circuitikzbasekey/#1}{#2}}
 
 \pgfkeys{\circuitikzbasekey/.search also={/tikz}}
-%%>>>
 
-%% Temporary Counters and dimensions%<<<1
-%% Temporary Counters
 \newcount\pgf@circ@count@a
 \newcount\pgf@circ@count@b
 \newcount\pgf@circ@count@c
-%%%%%%%%%%%%
-%% Dimensions
-% coordinate
+
 \newdimen\pgf@circ@res@up
 \newdimen\pgf@circ@res@down
 \newdimen\pgf@circ@res@zero
@@ -147,12 +116,6 @@
 \newdimen \pgfstartlinewidth
 %%>>>
 
-% arrow tips macros and utilities %<<<1
-
-% the default arrow is latexslim, which has been ported over old arrows library (deprecated)
-% see https://tex.stackexchange.com/questions/234084/latex-arrow-tip-with-arrows-meta-library
-% this was the original definition of latex' tips, renamed to avoid clashes
-%
 \pgfarrowsdeclare{latexslim}{latexslim}
 {
   \pgfutil@tempdima=0.28pt%
