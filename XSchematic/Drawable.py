@@ -14,6 +14,13 @@ class Drawable:
                  center : Point = None,
                  radius : float = None,
                  ratio : float = 1.0,
+                 # Text
+                 text : str = None,
+                 fontColor : str = 'black',
+                 fontSize : float = 12.0,
+                 fontFamily : str = 'sans-serif',
+                 fontWeight : str = 'normal',
+                 useLaTeX : bool = True,
                  # Common
                  fill : bool = False,
                  lineWidth : float = 1.0,
@@ -29,6 +36,13 @@ class Drawable:
         self.center = center
         self.radius = radius
         self.ratio = ratio
+
+        self.text = text
+        self.fontColor = fontColor
+        self.fontSize = fontSize
+        self.fontFamily = fontFamily
+        self.fontWeight = fontWeight
+        self.useLaTeX = useLaTeX
         
         self.fill = fill
         self.lineWidth = lineWidth
@@ -113,3 +127,14 @@ class Ellipse(Drawable):
         for angle in np.arange(self.startAngle, self.endAngle, self.angleResolution):
             self.pointList.append(Point(self.center.x + self.radius * np.cos(np.deg2rad(angle)), self.center.y + self.radius * self.ratio * np.sin(np.deg2rad(angle))))
         self.pointList.append(self.pointList[0])
+
+class Text(Drawable):
+    def draw(self, canvas) -> None:
+        canvas.text(x = self.pointList[0].x,
+                    y = self.pointList[0].y,
+                    s = self.text,
+                    color = self.fontColor,
+                    fontsize = self.fontSize,
+                    fontfamily = self.fontFamily,
+                    fontweight = self.fontWeight,
+                    usetex = self.useLaTeX)

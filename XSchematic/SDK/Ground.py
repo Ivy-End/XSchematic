@@ -4,13 +4,16 @@ from ..Utility import *
 from ..CellView import Symbol
 
 class AbstractGround(Symbol):
-    def __init__(self, scale = 0.35, lineWidthConnection = 1, lineWidth = 2) -> None:
+    def __init__(self, scale = 0.35, lineWidthConnection = 1, lineWidth = 2,
+                 pinLabel = 'GND', drawPinLabel = False) -> None:
         super().__init__()
         
         self.scale = scale
         self.lineWidthConnection = lineWidthConnection
         self.lineWidth = lineWidth
-        self.scale = scale
+        
+        self.pinLabel = pinLabel
+        self.drawPinLabel = drawPinLabel
 
         self.buildSymbol()
 

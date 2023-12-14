@@ -1,12 +1,17 @@
 from abc import abstractmethod
 from typing import Self
 from .Utility import Point
-from .Drawable import Drawable
+from .Drawable import Drawable, Text
 
 class Symbol:
-    def __init__(self) -> None:
+    def __init__(self, instanceName = r"$\mathrm{GND}_\alpha$", symbolName = '?') -> None:
         self.__drawables = []
         self.__boundingBox = None # [ N, S, W, E ]
+
+        self.instanceName = instanceName
+        self.symbolName = symbolName
+
+        self.drawInstanceName(point = Point(0, 0))
     
     def addDrawable(self, drawable: Drawable) -> Self:
         self.__drawables.append(drawable)
@@ -62,6 +67,12 @@ class Symbol:
     def draw(self, canvas) -> None:
         for drawable in self.__drawables:
             drawable.draw(canvas)
+    
+    def drawInstanceName(self, point : Point) -> None:
+        self.__drawables.append(Text(text = self.instanceName, pointList = [ point ]))
+    
+    def drawSymbolName(self, point : Point) -> None:
+        self.__drawables.append(Text(text = self.symbolName, pointList = [ point ]))
     
     def translate(self, point : Point) -> Self:
         for drawable in self.__drawables:
