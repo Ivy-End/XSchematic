@@ -27,5 +27,5 @@ class MatPlotLib(Engine):
     
     def save(self, fname) -> None:
         self.__canvas.axis('off')
-        self.__canvas.savefig(fname, bbox_inches = 'tight', pad_inches = 0)
+        self.__canvas.savefig(fname, bbox_inches = 'tight', pad_inches = 0, dpi = 600)
         self.__canvas.axis('on')

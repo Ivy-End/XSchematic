@@ -21,5 +21,5 @@ if __name__ == "__main__":
 
         engine.draw(sch, debug = True)
         
-    engine.save("test.svg")
+    engine.save("test.png")
     engine.show()
